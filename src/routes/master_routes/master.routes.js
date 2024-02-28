@@ -8,6 +8,7 @@ const TpDocController = require("../../controller/master_controller/TpDocControl
 const ResultController = require("../../controller/master_controller/ResultController");
 
 // Users
+router.get("/users", UserController.getAllUsers);
 router.post("/register", UserController.register);
 
 // UserRole

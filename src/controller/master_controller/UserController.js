@@ -3,6 +3,14 @@ const api = require("../../tools/common");
 const bcrypt = require("bcrypt");
 
 // USERS
+const getAllUsers = async (req, res) => {
+  try {
+    let data = await model.getAll();
+    return api.ok(res, data);
+  } catch {
+    return api.error(res, "Internal Server Error");
+  }
+};
 const register = async (req, res) => {
   const new_user = req.body;
   if (new_user && new_user.password && typeof new_user.password === "string") {
@@ -30,6 +38,7 @@ const addRole = async (req, res) => {
   }
 };
 module.exports = {
+  getAllUsers,
   register,
   addRole,
 };
