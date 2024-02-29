@@ -14,6 +14,8 @@ const getAll = async () =>
     .join("user_role as ur", "ur.role_id", "u.role_id")
     .where("u.is_deleted", 0);
 const register = async (data) => await db("users").insert(data);
+const update = async (id, data) =>
+  await db("users").where("user_id", id).update(data);
 
 // ROLE USERS
 const addRole = async (data) => await db("user_role").insert(data);
@@ -22,4 +24,5 @@ module.exports = {
   getAll,
   register,
   addRole,
+  update,
 };

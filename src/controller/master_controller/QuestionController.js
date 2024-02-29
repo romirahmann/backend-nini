@@ -31,6 +31,14 @@ const updateQuestion = async (req, res) => {
   }
 };
 // Category
+const getAllCategories = async (req, res) => {
+  try {
+    let data = await model.getAllCategory();
+    return api.ok(res, data);
+  } catch {
+    return api.error(res, "Internal Server Error");
+  }
+};
 const addCategoryQuestion = async (req, res) => {
   const newCategroy = req.body;
   try {
@@ -46,4 +54,5 @@ module.exports = {
   addQuestion,
   updateQuestion,
   getAllQuestions,
+  getAllCategories,
 };

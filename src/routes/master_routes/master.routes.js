@@ -10,11 +10,13 @@ const ResultController = require("../../controller/master_controller/ResultContr
 // Users
 router.get("/users", UserController.getAllUsers);
 router.post("/register", UserController.register);
+router.put("/user/:id", UserController.updateUsers);
 
 // UserRole
 router.post("/add-role", UserController.addRole);
 
 // Faktor Kesebandingan
+router.get("/faktors", FaktorController.getAllFaktor);
 router.post("/faktor", FaktorController.addFaktorKesebandingan);
 
 // Questions
@@ -23,6 +25,7 @@ router.post("/question", QuestionController.addQuestion);
 router.put("/question/:id", QuestionController.updateQuestion);
 
 // Category
+router.get("/categories", QuestionController.getAllCategories);
 router.post("/category", QuestionController.addCategoryQuestion);
 
 // TP DOC

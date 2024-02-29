@@ -11,6 +11,16 @@ const getAllUsers = async (req, res) => {
     return api.error(res, "Internal Server Error");
   }
 };
+const updateUsers = async (req, res) => {
+  const { id } = req.params;
+  const dataUser = req.body;
+  try {
+    let data = await model.update(id, dataUser);
+    return api.ok(res, data);
+  } catch {
+    return api.error(res, "Internal Server Error");
+  }
+};
 const register = async (req, res) => {
   const new_user = req.body;
   if (new_user && new_user.password && typeof new_user.password === "string") {
@@ -41,4 +51,5 @@ module.exports = {
   getAllUsers,
   register,
   addRole,
+  updateUsers,
 };
