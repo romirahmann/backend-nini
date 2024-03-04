@@ -23,6 +23,7 @@ router.post("/faktor", FaktorController.addFaktorKesebandingan);
 router.get("/questions", QuestionController.getAllQuestions);
 router.post("/question", QuestionController.addQuestion);
 router.put("/question/:id", QuestionController.updateQuestion);
+router.get("/questionsByFaktor", QuestionController.getAllQuestionsByFactor);
 
 // Category
 router.get("/categories", QuestionController.getAllCategories);
@@ -30,6 +31,7 @@ router.post("/category", QuestionController.addCategoryQuestion);
 
 // TP DOC
 router.get("/tp/:userID", TpDocController.getAllByUserId);
+router.get("/detail-tp/:id", TpDocController.getAllByTpId);
 router.put("/update-tp/:id", TpDocController.updateTpDoc);
 router.post("/tp", TpDocController.addTpDoc);
 
