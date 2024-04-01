@@ -10,6 +10,15 @@ const getAllByTpId = async (req, res) => {
     return api.error(res, "Internal Server Error");
   }
 };
+const getAllResultGroupByFakor = async (req, res) => {
+  const { id } = req.params;
+  try {
+    let data = await model.getResultGrouByTpDoc(id);
+    return api.ok(res, data);
+  } catch {
+    return api.error(res, "Internal Server Error", 500);
+  }
+};
 
 const addResult = async (req, res) => {
   const newData = req.body;
@@ -35,4 +44,5 @@ module.exports = {
   getAllByTpId,
   addResult,
   updateResult,
+  getAllResultGroupByFakor,
 };

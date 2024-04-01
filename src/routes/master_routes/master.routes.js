@@ -36,8 +36,9 @@ router.put("/update-tp/:id", TpDocController.updateTpDoc);
 router.post("/tp", TpDocController.addTpDoc);
 
 // RESULT
-router.get("/result-by-tp.:tpId", ResultController.getAllByTpId);
+router.get("/result-by-tp/:tpId", ResultController.getAllByTpId);
 router.put("/update-result/:id", ResultController.updateResult);
 router.post("/result", ResultController.addResult);
+router.get("/result-by-faktor/:id", ResultController.getAllResultGroupByFakor);
 
 module.exports = router;
